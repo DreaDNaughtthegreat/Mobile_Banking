@@ -146,7 +146,7 @@ if (isset($_SESSION['user_id'], $_SESSION["logged_in"]) && $_SESSION["logged_in"
                     $(this).siblings("input").attr("type", "text")
                     $(this).children(".passtoggler").removeClass("fa-eye text-dark").addClass("fa-eye-slash text-primary")
                 } else {
-                    $(this).siblings("input").attr("type", "text")
+                    $(this).siblings("input").attr("type", "password")
                     $(this).children(".passtoggler").removeClass("fa-eye-slash text-primary").addClass("fa-eye text-dark")
                 }
             })
