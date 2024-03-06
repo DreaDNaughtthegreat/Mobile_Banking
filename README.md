@@ -1,7 +1,7 @@
 
 # Mobile Banking System
 
-Mobile Banking is a straightforward PHP-MySQL banking system that allows users to perform basic banking operations. This repository provides the necessary files to set up and run the application.
+Mobile Banking is a straightforward PHP-MySQL banking system utilizing a Bootstrap5 Frontend that allows users to perform basic banking operations. This repository provides the necessary files to set up and run the application.
 
 ## Getting Started
 
