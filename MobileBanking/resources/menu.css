@@ -102,7 +102,7 @@ input:focus {
 }
 /*small devices*/
  @media (max-width: 767.98px) {
-    .cardlogin,.changepincard,.depositcard,.canceldepositcard {
+    .cardlogin,.changepincard,.depositcard,.canceldepositcard,.cardsignup {
         width: 100%;
         }
     .input-with-text{
@@ -115,7 +115,7 @@ input:focus {
     .mycard {
         max-width: 250px; /* Set the max-width for large devices */
     }
-    .cardlogin,.changepincard,.depositcard,.canceldepositcard{
+    .cardlogin,.changepincard,.depositcard,.canceldepositcard,.cardsignup{
         min-width:320px; max-width:400px;
     }
 } 
