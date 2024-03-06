@@ -10,6 +10,22 @@ Follow these steps to run the application locally:
 1. **Download and Extract:**
    - Download the ZIP file and extract its contents.
    - Place the extracted folder in your server root directory.
+  
+   - open the  ```resources``` directory and change the variables below appropriately
+     ```PHP
+     $siteName="Mobile Banking";
+     $youtubeChannel ="https://www.youtube.com";
+     $siteLocation="City";
+     $siteContact="+254 xxx xxx xxx";
+     $siteEmail="mobileBanking@email.com";
+     
+     $servername = "mysql_host:mysql_port";
+     $username = "your_mysql_username";
+     $password = "your_mysql_password";
+     ```
+  
+     the above variables re important in customizing the site and establishing a mysql connection
+     , 
 
 2. **Start Servers:**
    - Start your MySQL and Apache servers.
@@ -21,6 +37,8 @@ Follow these steps to run the application locally:
       ```bash
       # Example command for MySQL command line
       mysql -u your_username -p MOBILEBANKING < path/to/db-file/MOBILEBANKING.sql
+      or
+      using phpMyadmin
       ```
 
 4. **Launch the Application:**
@@ -30,6 +48,9 @@ Follow these steps to run the application locally:
    - Use the following credentials to log in:
       - Account Number: 10005041000079103821
       - PIN: 1111
+6. **rror logging**
+The system supports error logging, to log in an error, you can edit ```php.ini``` and change this line ```error_log="PATH/error_log"``` replace PATH with the actual destination.
+the aforementioned logs are accessible later in the specified file 
 
 ## Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests.
@@ -39,11 +60,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-# The progrm supports error logging,
-To log in an error, you can edit ```php.ini``` and change this line ```error_log="PATH/error_log"``` replace PATH with the actual destination.
-the aforementioned logs are accessible later in the specified file 
 
 
-**Note:** Ensure that your server environment meets the requirements, and the necessary extensions PDO  is enabled.
+**Note:** Ensure that your server environment meets the requirements, and the necessary extension PDO  is enabled.
 
 Enjoy mobile banking with simplicity and ease of use!
