@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 06, 2024 at 09:08 AM
+-- Generation Time: Mar 06, 2024 at 04:08 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -143,7 +143,7 @@ INSERT INTO `USERS` (`USER_ID`, `FIRST_NAME`, `LAST_NAME`, `PIN`, `CREATION_TIME
 (7, 'James', 'Sew', '$2y$10$76SVH5kYn/aeAdCWGqi7z.PuWIj2ZNsNUIqKWaT90BDUm1mtT3feS', '2024-03-05 14:21:23'),
 (8, 'pauline', 'derw', '$2y$10$5Mfi9MLykiUdYIjByYoSjeN2l/r7PLGeaY5/fAVHpGhem3vg0KceC', '2024-03-05 14:21:50'),
 (9, 'Mino', 'Owino', '$2y$10$J9XVbeKJVb/Oqfi5fPUzzOJOm0W/kI.I4jS775nMrdAwoFJUe0ljC', '2024-03-05 14:23:21'),
-(10, 'John', 'Doe', '$2y$10$TYY6E/5QqBZu9JFRrcom/ebLL6VVOxSaYoyLFklyiVs5PtJVOBP9W', '2024-03-05 14:50:30'),
+(10, 'John', 'Doe', '$2y$10$kqxYtnq0W8BwKAbetRHLce4hZpjjWkSvXo.keTybAPu5m2.BIog.i', '2024-03-05 14:50:30'),
 (11, 'Fatuma', 'Mwelusi', '$2y$10$.rYxZAuxJz5cPU0kNsG6I.SSZIoEGqFCtYjhUbozpys1caHiS0yte', '2024-03-05 22:54:49'),
 (12, 'Fatuma', 'madsa', '$2y$10$v25xbBg3DBKeG174dAljNOH4EXM2w0/aOsa/wURwpk62oihqR.WC.', '2024-03-05 23:00:22'),
 (13, 'James', 'madsa', '$2y$10$4ppZC9j1OwXwLeSYo2dzfe.nMudJb.yLIC50u5EW6XaxJyzbCFboq', '2024-03-05 23:03:32'),
@@ -186,7 +186,10 @@ INSERT INTO `USER_LOGIN` (`LOGIN_ID`, `USER_ID`, `SUCCESSFUL`, `TIMESTAMP`) VALU
 (17, 10, 'YES', '2024-03-06 07:24:14'),
 (18, 10, 'YES', '2024-03-06 07:25:20'),
 (19, 10, 'YES', '2024-03-06 07:32:59'),
-(20, 10, 'YES', '2024-03-06 07:48:15');
+(20, 10, 'YES', '2024-03-06 07:48:15'),
+(21, 10, 'YES', '2024-03-06 08:19:01'),
+(22, 10, 'NO', '2024-03-06 15:04:41'),
+(23, 10, 'YES', '2024-03-06 15:04:46');
 
 --
 -- Indexes for dumped tables
@@ -202,13 +205,15 @@ ALTER TABLE `ACCOUNT`
 -- Indexes for table `CHEQUES`
 --
 ALTER TABLE `CHEQUES`
-  ADD PRIMARY KEY (`CHEQUE_ID`);
+  ADD PRIMARY KEY (`CHEQUE_ID`),
+  ADD KEY `fk_cheques_account` (`ACCOUNT_ID`);
 
 --
 -- Indexes for table `TRANSACTIONS`
 --
 ALTER TABLE `TRANSACTIONS`
-  ADD PRIMARY KEY (`TRANSACTION_ID`);
+  ADD PRIMARY KEY (`TRANSACTION_ID`),
+  ADD KEY `fk_transactions_account` (`ACCOUNT_ID`);
 
 --
 -- Indexes for table `USERS`
@@ -220,7 +225,8 @@ ALTER TABLE `USERS`
 -- Indexes for table `USER_LOGIN`
 --
 ALTER TABLE `USER_LOGIN`
-  ADD PRIMARY KEY (`LOGIN_ID`);
+  ADD PRIMARY KEY (`LOGIN_ID`),
+  ADD KEY `fk_userlogin_users` (`USER_ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -254,7 +260,29 @@ ALTER TABLE `USERS`
 -- AUTO_INCREMENT for table `USER_LOGIN`
 --
 ALTER TABLE `USER_LOGIN`
-  MODIFY `LOGIN_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `LOGIN_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `CHEQUES`
+--
+ALTER TABLE `CHEQUES`
+  ADD CONSTRAINT `fk_cheques_account` FOREIGN KEY (`ACCOUNT_ID`) REFERENCES `ACCOUNT` (`ACCOUNT_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `TRANSACTIONS`
+--
+ALTER TABLE `TRANSACTIONS`
+  ADD CONSTRAINT `fk_transactions_account` FOREIGN KEY (`ACCOUNT_ID`) REFERENCES `ACCOUNT` (`ACCOUNT_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `USER_LOGIN`
+--
+ALTER TABLE `USER_LOGIN`
+  ADD CONSTRAINT `fk_userlogin_users` FOREIGN KEY (`USER_ID`) REFERENCES `USERS` (`USER_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
