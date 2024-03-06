@@ -388,7 +388,8 @@ function handleDeposit() {
         method: 'POST',
         data: depositData,
         beforeSend:function(){
-            $('.depositstatusdiv').html('<i class="text-primary fa fa-spinner fa-spin"></i>');
+            $('.depositstatusdiv').html(`<div class="d-flex justify-content-center 
+            align-items-center"><i class="text-primary text-center  fa fa-spinner fa-spin"></i></div>`);
         },
         success: function (data) {
             var result = $.parseJSON(data);
@@ -422,7 +423,8 @@ function handleDeposit() {
             method: 'GET',
             data: data,
              beforeSend:function(){
-            $('.user_name,.accounts').html('<i class="text-primary fa fa-spinner fa-spin"></i>');
+            $('.user_name,.accounts').html(`<div class="d-flex justify-content-center 
+            align-items-center"><i class="text-primary text-center  fa fa-spinner fa-spin"></i></div>`);
             },
             success: function (data) {
                 var result = $.parseJSON(data);
@@ -459,7 +461,8 @@ function handleDeposit() {
             method: 'POST',
             data: data,
             beforeSend:function(){
-            $('.pinstatusdiv').html('<i class="text-primary fa fa-spinner fa-spin"></i>');
+            $('.pinstatusdiv').html(`<div class="d-flex justify-content-center 
+            align-items-center"><i class="text-primary text-center  fa fa-spinner fa-spin"></i></div>`);
             },
             success: function (data) {
                 var result = $.parseJSON(data);
@@ -494,7 +497,8 @@ function handleDeposit() {
             method: 'GET',
             data: data,
             beforeSend:function(){
-            $('.showbalances').html('<i class="text-primary fa fa-spinner fa-spin"></i>');
+            $('.showbalances').html(`<div class="d-flex justify-content-center 
+            align-items-center"><i class="text-primary text-center  fa fa-spinner fa-spin"></i></div>`);
             },
             success: function (data) {
                 var result = $.parseJSON(data);
@@ -530,7 +534,8 @@ function handleDeposit() {
             method: 'GET',
             data: data,
             beforeSend:function(){
-            $('.tipsarea').html('<i class="text-primary fa fa-spinner fa-spin"></i>');
+            $('.tipsarea').html(`<div class="d-flex justify-content-center 
+            align-items-center"><i class="text-primary text-center  fa fa-spinner fa-spin"></i></div>`);
             },
             success: function (data) {
                 var result = $.parseJSON(data);
@@ -571,7 +576,8 @@ function stopDeposit(chequeNumber) {
         method: 'POST',
         data: data,
         beforeSend:function(){
-            $('.canceldepositstatusdiv').html('<i class="text-primary fa fa-spinner fa-spin"></i>');
+            $('.canceldepositstatusdiv').html(`<div class="d-flex justify-content-center 
+            align-items-center"><i class="text-primary text-center  fa fa-spinner fa-spin"></i></div>`);
             },
         success: function (data) {
             var result = $.parseJSON(data);
