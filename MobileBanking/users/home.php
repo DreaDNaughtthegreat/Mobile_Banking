@@ -280,7 +280,7 @@ $user_id = clean($_SESSION['user_id']);
         $(this).siblings("input").attr("type", "text")
         $(this).children(".passtoggler").removeClass("fa-eye text-dark").addClass("fa-eye-slash text-primary")
     } else {
-        $(this).siblings("input").attr("type", "text")
+        $(this).siblings("input").attr("type", "password")
         $(this).children(".passtoggler").removeClass("fa-eye-slash text-primary").addClass("fa-eye text-dark")
     }
 })
